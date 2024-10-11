@@ -52,11 +52,10 @@ document.querySelector('#add-user-form').addEventListener('submit', function(eve
     }).then(function(response){
         return response.json();
     }).then(function(data) {
-        alert("Use added successfully");
         firstName.value = null;
         middleName.value = null;
         lastName.value = null;
-        console.log(data);
+        console.log(data.message);
         showUserDetails();
     })
 })
@@ -68,7 +67,7 @@ function deleteUser(userId) {
     }).then(function(response){
         return response.json()
     }).then(function(data){
-        alert(`User has been deleted!`);
+        console.log(`User has been deleted!`);
         showUserDetails();
     })  
 }
@@ -109,7 +108,7 @@ document.querySelector('#edit-user-form').addEventListener('submit', function(ev
         middleName.value = null,
         lastName.value = null
         userId = null;
-        alert(data.message);
+        console.log(data.message);
         showUserDetails();
     })
 })
